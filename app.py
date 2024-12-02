@@ -10,7 +10,7 @@ DOWNLOADS_DIR = 'downloads'
 os.makedirs(DOWNLOADS_DIR, exist_ok=True)
 
 
-COOKIES_FILE_PATH = 'cookies.txt' 
+COOKIES_FILE_PATH = 'www.youtube.com_cookies.txt' 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
