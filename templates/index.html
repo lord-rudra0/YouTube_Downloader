@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Downloader</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body>
+
+    <div class="container navbar">
+        <nav>
+            <ul>
+                <li><a href="/">Nigga Web App </a></li>
+            </ul>
+
+    </div>
+
+    <div class="mainForm">
+      <h1>YouTube Video Downloader</h1>
+      {% if error %}
+      <div class="error">{{ error }}</div>
+      {% endif %} {% if success %}
+      <div class="success">
+        Download successful!
+        <a href="/downloads/{{ filename }}" download>Click here to download</a>
+      </div>
+      {% endif %}
+      <form action="/" method="post">
+        <input
+          type="text"
+          name="url"
+          id="url"
+          placeholder="Enter YouTube Video URL"
+          required
+        />
+        <button type="submit">Download</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+        Created by <a href="https://my-portfolio-wine-one-81.vercel.app/">Me</a>
+        <p>© 2024 Thakur</p>
+    </footer>
+  </body>
+</html>
