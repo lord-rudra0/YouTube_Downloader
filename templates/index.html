@@ -11,17 +11,17 @@
   </head>
 
   <body>
-
     <div class="container navbar">
-        <nav>
-            <ul>
-                <li><a href="/">YT Saver </a></li>
-            </ul>
-
+      <nav>
+        <ul>
+          <li><a href="/">YT Saver</a></li>
+        </ul>
+      </nav>
     </div>
 
     <div class="mainForm">
       <h1>YouTube Video Downloader</h1>
+
       {% if error %}
       <div class="error">{{ error }}</div>
       {% endif %} {% if success %}
@@ -30,7 +30,9 @@
         <a href="/downloads/{{ filename }}" download>Click here to download</a>
       </div>
       {% endif %}
-      <form action="/" method="post">
+
+      <form action="/" method="post" enctype="multipart/form-data">
+        <label for="url">YouTube Video URL:</label>
         <input
           type="text"
           name="url"
@@ -38,13 +40,32 @@
           placeholder="Enter YouTube Video URL"
           required
         />
-        <button type="submit">Download</button>
+
+        <label for="cookies">Upload Cookies (optional):</label>
+        <input type="file" name="cookies" id="cookies" accept=".txt" />
+
+        <button type="submit">Download Video</button>
+      </form>
+
+      <hr />
+
+      <h2>Or Stream Directly to VLC</h2>
+      <form action="{{ url_for('stream_video') }}" method="post">
+        <label for="url">YouTube Video URL:</label>
+        <input
+          type="text"
+          name="url"
+          id="url"
+          placeholder="Enter YouTube Video URL"
+          required
+        />
+        <button type="submit">Stream to VLC</button>
       </form>
     </div>
 
     <footer class="footer">
-        Created by <a href="https://my-portfolio-wine-one-81.vercel.app/">Me</a>
-        <p>© 2024 Thakur</p>
+      Created by <a href="https://my-portfolio-wine-one-81.vercel.app/">Me</a>
+      <p>© 2024 Thakur</p>
     </footer>
   </body>
 </html>
