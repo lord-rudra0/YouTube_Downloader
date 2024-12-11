@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: #000;
 }
 
 .container {
@@ -22,6 +23,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     width: 400px;
+
 }
 
 footer {
